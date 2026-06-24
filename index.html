@@ -1,7 +1,47 @@
-<button onclick="document.getElementById('son').play()">
-    Jouer le son
-</button>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image + Son</title>
 
-<audio id="son">
+<style>
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: black;
+}
+
+img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+</style>
+</head>
+<body>
+
+<img src="R.jpg" alt="Image">
+
+<audio id="sound" preload="auto">
     <source src="son.mp3" type="audio/mpeg">
 </audio>
+
+<script>
+const sound = document.getElementById("sound");
+
+function playSound() {
+    sound.currentTime = 0;
+    sound.play().catch(() => {});
+}
+
+document.addEventListener("click", playSound);
+document.addEventListener("keydown", playSound);
+document.addEventListener("mousemove", playSound);
+document.addEventListener("touchstart", playSound);
+</script>
+
+</body>
+</html>
