@@ -1,44 +1,43 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Screamer</title>
-<style>
-    html, body {
-        margin: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background: black;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue</title>
 
-    #screamer {
-        position: fixed;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: none;
-    }
-</style>
+    <style>
+        body {
+            background: #111;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+
+        img {
+            max-width: 500px;
+            width: 90%;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
 
-<img id="screamer" src="R.jpg" alt="Screamer">
+    <h1>Bienvenue sur mon site !</h1>
 
-<audio id="sound" src="freesound_community-screamer-jumpscare-66896.mp3"></audio>
+    <img src="image.jpg" alt="Image d'accueil">
 
-<script>
-window.onload = () => {
-    setTimeout(() => {
-        document.getElementById("screamer").style.display = "block";
-        document.getElementById("sound").play().catch(() => {
-            console.log("Lecture audio bloquée par le navigateur.");
+    <audio id="sound" src="son.mp3"></audio>
+
+    <script>
+        window.addEventListener("load", () => {
+            const audio = document.getElementById("sound");
+
+            audio.play().catch(() => {
+                console.log("Autoplay bloqué par le navigateur.");
+            });
         });
-    }, 1000);
-};
-</script>
+    </script>
 
 </body>
 </html>
