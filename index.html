@@ -39,7 +39,15 @@ function playSound() {
 
 document.addEventListener("click", playSound);
 document.addEventListener("keydown", playSound);
-document.addEventListener("mousemove", playSound);
+let lastPlay = 0;
+
+document.addEventListener("mousemove", () => {
+    const now = Date.now();
+    if (now - lastPlay > 500) {
+        lastPlay = now;
+        playSound();
+    }
+});
 document.addEventListener("touchstart", playSound);
 </script>
 
